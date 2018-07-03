@@ -4,7 +4,7 @@ import loading from '../assets/loading.svg';
 
 export const withLoading = Component => {
   const WithLoading = (props) =>
-    !!props.isLoading
+    props.isLoading
       ? <Component {...props}/>
       : <img
         alt="Loading"

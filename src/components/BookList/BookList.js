@@ -32,7 +32,8 @@ class BookList extends Component {
 }
 
 BookList.propTypes = {
-    books: PropTypes.array.isRequired
+    books: PropTypes.array.isRequired,
+    onChangeBookShelf: PropTypes.func.isRequired
 };
 
 export default withLoading(BookList)

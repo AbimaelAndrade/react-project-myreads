@@ -65,7 +65,8 @@ class BookSearch extends Component {
         <div className="search-books-bar">
           <Link 
             to="/" 
-            className="close-search">Close</Link>
+            className="close-search"
+          >Close</Link>
           <div className="search-books-input-wrapper">
             <input type="text" 
               onChange={ event => this.onSearch(event) } 

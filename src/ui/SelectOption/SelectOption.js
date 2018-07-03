@@ -14,7 +14,9 @@ class SelectOption extends Component {
                             key={index}
                             value={option.value} 
                             disabled={ option.disabled }
-                        >{option.name}</option>
+                        >
+                        {option.name}
+                        </option>
                     )
 
                 })}
