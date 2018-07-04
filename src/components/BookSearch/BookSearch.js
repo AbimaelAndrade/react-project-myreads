@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import sortBy from 'sort-by'
+import { Debounce } from 'react-throttle'
 import * as BooksAPI from '../../utils/BooksAPI'
 
 import './BookSearch.css'
@@ -26,7 +27,7 @@ class BookSearch extends Component {
   onSearch = (event) => {
       const value = event.target.value.trim()
       const { myBooks }  = this.state
-      
+
       if (value && value.length > 2) {
         BooksAPI.search(value)
             .then(books => {
@@ -68,10 +69,13 @@ class BookSearch extends Component {
             className="close-search"
           >Close</Link>
           <div className="search-books-input-wrapper">
-            <input type="text" 
-              onChange={ event => this.onSearch(event) } 
-              placeholder="Search by title or author"
-            />
+            <Debounce time="400" handler="onChange">
+              <input 
+                type="text"
+                onChange={event => this.onSearch(event)}
+                placeholder="Search by title or author"
+              />
+            </Debounce>
           </div>
         </div>
         <div className="search-books-results">
